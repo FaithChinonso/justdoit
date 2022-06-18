@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    if (todo.trim().length === 0) {
+    if (todo?.trim().length === 0) {
       return;
     }
     if (todos) {
