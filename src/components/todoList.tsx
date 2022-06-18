@@ -9,13 +9,13 @@ interface Props {
 }
 
 const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
-  const uncompletedTodos = todos.filter(t => t.isDone === false);
-  const completedTodos = todos.filter(t => t.isDone === true);
+  const uncompletedTodos = todos?.filter(t => t.isDone === false);
+  const completedTodos = todos?.filter(t => t.isDone === true);
   return (
     <div className="container">
       <div className="todos">
         <div className="todos__heading">Active Task</div>
-        {uncompletedTodos.map(todo => (
+        {uncompletedTodos?.map(todo => (
           <SingleTodo
             key={todo.id}
             todo={todo}
@@ -27,7 +27,7 @@ const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
 
       <div className="todos remove">
         <div className="todos__heading">Completed Task</div>
-        {completedTodos.map(todo => (
+        {completedTodos?.map(todo => (
           <SingleTodo
             key={todo.id}
             todo={todo}
