@@ -7,7 +7,7 @@ import { Todo } from "./model";
 const App: React.FC = () => {
   let sessionTodos: Todo[];
   const storedTodo: Todo[] = JSON.parse(sessionStorage.getItem("todo") || "");
-  if (storedTodo.length !== 0) {
+  if (storedTodo?.length !== 0) {
     sessionTodos = storedTodo;
     console.log(storedTodo);
   } else {
