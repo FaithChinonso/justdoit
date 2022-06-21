@@ -5,16 +5,8 @@ import TodoList from "./components/todoList";
 import { Todo } from "./model";
 
 const App: React.FC = () => {
-  let sessionTodos: Todo[];
-  const storedTodo: Todo[] = JSON.parse(sessionStorage.getItem("todo") || "");
-  if (storedTodo?.length !== 0) {
-    sessionTodos = storedTodo;
-    console.log(storedTodo);
-  } else {
-    sessionTodos = [];
-  }
   const [todo, setTodo] = useState<string>("");
-  const [todos, setTodos] = useState<Todo[]>(sessionTodos);
+  const [todos, setTodos] = useState<Todo[]>([]);
   // const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
 
   const handleAdd = (e: React.FormEvent) => {
@@ -29,9 +21,7 @@ const App: React.FC = () => {
     }
     console.log(todos);
   };
-  useEffect(() => {
-    sessionStorage.setItem("todo", JSON.stringify(todos));
-  }, [todos]);
+
   return (
     <div className="App">
       <div className="heading">
